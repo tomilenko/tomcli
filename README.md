@@ -29,8 +29,25 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`tomcli create [FILE]`](#tomcli-create-file)
 * [`tomcli hello [FILE]`](#tomcli-hello-file)
 * [`tomcli help [COMMAND]`](#tomcli-help-command)
+
+## `tomcli create [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ tomcli create [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/create.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/create.ts)_
 
 ## `tomcli hello [FILE]`
 
