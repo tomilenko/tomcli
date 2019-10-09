@@ -5,12 +5,12 @@ import { BaseUtil } from '../utils/base.util';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { Generator } from '../utils/generator';
-import { IProjectOptions, GenerationTypesEnum } from '../models/create';
-import { QProjectList, QProjectsName } from '../models/choice';
+import { IProjectOptions } from '../models/project';
+import { QProjectList, QName } from '../models/choice';
 import { GenerateOptions } from '../models/generation';
 import { Config } from '../models';
 
-export default class Create extends Command {
+export default class Project extends Command {
     static description = 'Create new project';
 
     static flags = {
@@ -23,16 +23,16 @@ export default class Create extends Command {
     ];
 
     private _options: GenerateOptions = {
-        type: GenerationTypesEnum.PROJECT,
+        type: 'project',
         name: '',
         customTemplatesUrl: Config.TEMPLATES_URL,
-        dest: process.cwd(),
+        dest: '',
         template: '',
         wrapInFolder: true,
     };
 
     async run() {
-        const { args, flags } = this.parse(Create)
+        const { args, flags } = this.parse(Project)
         this._options = _.extend(this._options, args);
 
         if (!this._options.template || !BaseUtil.isProjectTemplateExist(this._options.template)) {
@@ -40,7 +40,11 @@ export default class Create extends Command {
         }
 
         if (!this._options.name) {
-            await inquirer.prompt([QProjectsName]).then((answer: IProjectOptions) => this._options.name = answer.name as string);
+            await inquirer.prompt([QName]).then((answer: IProjectOptions) => this._options.name = answer.name as string);
+        }
+
+        if (!this._options.dest) {
+            this._options.dest = process.cwd();
         }
 
         new Generator(this._options);

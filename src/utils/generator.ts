@@ -18,7 +18,7 @@ export class Generator {
         console.log(1)
         this._templateAbsolutePath = path.join(
             __dirname,
-            '../',
+            '../../',
             options.customTemplatesUrl +
             '/' +
             options.type +
