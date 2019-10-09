@@ -10,26 +10,33 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "figlet": "^1.2.4",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
+    "inversify": "^5.0.1",
     "js-beautify": "^1.10.2",
+    "kleur": "^3.0.3",
     "lodash": "^4.17.15",
     "mkdirp": "^0.5.1",
     "node-notifier": "^6.0.0",
     "nodegit": "^0.26.2",
     "path": "^0.12.7",
     "path-type": "^4.0.0",
+    "reflect-metadata": "^0.1.13",
     "string-template": "^1.0.0",
     "tslib": "^1",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
+    "@liftr/tscov": "^1.4.3",
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "@oclif/tslint": "^3",
     "@types/chai": "^4",
+    "@types/figlet": "^1.2.0",
     "@types/fs-extra": "^8.0.0",
     "@types/inquirer": "^6.5.0",
+    "@types/inversify": "^2.0.33",
     "@types/js-beautify": "^1.8.1",
     "@types/lodash": "^4.14.141",
     "@types/mkdirp": "^0.5.2",
@@ -37,6 +44,7 @@
     "@types/node": "^10",
     "@types/node-notifier": "^5.4.0",
     "@types/nodegit": "^0.24.11",
+    "@types/reflect-metadata": "^0.1.0",
     "@types/string-template": "^1.0.2",
     "@types/underscore.string": "^0.0.38",
     "chai": "^4",
@@ -45,6 +53,7 @@
     "nyc": "^13",
     "ts-node": "^8",
     "tslint": "^5",
+    "typedoc": "^0.15.0",
     "typescript": "^3.3"
   },
   "engines": {
@@ -75,7 +84,8 @@
     "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "docs": "typedoc --out docs ./src"
   },
   "types": "lib/index.d.ts"
 }

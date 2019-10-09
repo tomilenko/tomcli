@@ -30,7 +30,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`tomcli create [FILE]`](#tomcli-create-file)
-* [`tomcli hello [FILE]`](#tomcli-hello-file)
+* [`tomcli createeee [TYPE] [PATH]`](#tomcli-createeee-type-path)
 * [`tomcli help [COMMAND]`](#tomcli-help-command)
 
 ## `tomcli create [FILE]`
@@ -49,25 +49,19 @@ OPTIONS
 
 _See code: [src/commands/create.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/create.ts)_
 
-## `tomcli hello [FILE]`
+## `tomcli createeee [TYPE] [PATH]`
 
-describe the command here
+Crete new project
 
 ```
 USAGE
-  $ tomcli hello [FILE]
+  $ tomcli createeee [TYPE] [PATH]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ tomcli hello
-  hello world from ./src/hello.ts!
+  -h, --help  show help
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/createeee.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/createeee.ts)_
 
 ## `tomcli help [COMMAND]`
 
