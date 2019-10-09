@@ -16,11 +16,11 @@ tomcli
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g tomcli
+$ npm install -g tomcli-v
 $ tomcli COMMAND
 running command...
 $ tomcli (-v|--version|version)
-tomcli/0.0.1 darwin-x64 node-v12.1.0
+tomcli-v/0.0.6 darwin-x64 node-v12.1.0
 $ tomcli --help [COMMAND]
 USAGE
   $ tomcli COMMAND
@@ -29,39 +29,47 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`tomcli create [FILE]`](#tomcli-create-file)
-* [`tomcli createeee [TYPE] [PATH]`](#tomcli-createeee-type-path)
+* [`tomcli create [TEMPLATE] [NAME]`](#tomcli-create-template-name)
+* [`tomcli hello [FILE]`](#tomcli-hello-file)
 * [`tomcli help [COMMAND]`](#tomcli-help-command)
 
-## `tomcli create [FILE]`
+## `tomcli create [TEMPLATE] [NAME]`
+
+Create new project
+
+```
+USAGE
+  $ tomcli create [TEMPLATE] [NAME]
+
+ARGUMENTS
+  TEMPLATE  Template name
+  NAME      Project name
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/create.ts](https://github.com/tomilenko/tomcli/blob/v0.0.6/src/commands/create.ts)_
+
+## `tomcli hello [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ tomcli create [FILE]
+  $ tomcli hello [FILE]
 
 OPTIONS
   -f, --force
   -h, --help       show CLI help
   -n, --name=name  name to print
+
+EXAMPLE
+  $ tomcli hello
+  hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/create.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/create.ts)_
-
-## `tomcli createeee [TYPE] [PATH]`
-
-Crete new project
-
-```
-USAGE
-  $ tomcli createeee [TYPE] [PATH]
-
-OPTIONS
-  -h, --help  show help
-```
-
-_See code: [src/commands/createeee.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/createeee.ts)_
+_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.0.6/src/commands/hello.ts)_
 
 ## `tomcli help [COMMAND]`
 
