@@ -15,7 +15,6 @@ export class Generator {
 
     constructor(options: GenerateOptions) {
         this._options = options;
-        console.log(1)
         this._templateAbsolutePath = path.join(
             __dirname,
             '../../',
@@ -25,7 +24,6 @@ export class Generator {
             '/' +
             options.template.toLowerCase()
         );
-        console.log(2)
         const defaultOptions = {
             wrapInFolder: true,
             autoIndent: true,
@@ -33,8 +31,6 @@ export class Generator {
         };
 
         this._options = _.extend(defaultOptions, this._options);
-        console.log(this._options);
-        console.log(this._templateAbsolutePath);
         this.run();
     }
 
@@ -88,6 +84,9 @@ export class Generator {
             dest = this._options.dest + path.sep + dest;
         }
 
+        // console.log('this._options', this._options)
+        console.log('dest', dest)
+
         fs.readFile(
             absoluteTemplatePath,
             'utf8',
@@ -132,12 +131,12 @@ export class Generator {
                         formattedData = js_beautify(formattedData);
                     }
 
+                    const fileToWrite = this._options.singleFile
+                        ? dest + templateFilename.replace(/{project}/g, this._options.name).split("/").pop()
+                        : dest + templateFilename.replace(/{project}/g, this._options.name);
+
                     fs.writeFile(
-                        dest +
-                        templateFilename.replace(
-                            /{project}/g,
-                            this._options.name
-                        ),
+                        fileToWrite,
                         formattedData,
                         (error: Error) => {
                             if (error) {
@@ -146,11 +145,7 @@ export class Generator {
                             console.log(
                                 '\x1b[32m%s\x1b[0m: ',
                                 'Created: ' +
-                                dest +
-                                templateFilename.replace(
-                                    /{project}/g,
-                                    this._options.name
-                                )
+                                fileToWrite
                             );
                         }
                     );
