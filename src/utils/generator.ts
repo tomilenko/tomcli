@@ -1,19 +1,22 @@
 import * as fs from 'fs-extra';
 import * as format from 'string-template';
 import * as _s from 'underscore.string';
-import * as inquirer from 'inquirer';
 import * as mkdirp from 'mkdirp';
 import * as _ from 'lodash';
 import * as path from 'path';
 import { js_beautify } from 'js-beautify';
+import { Logger } from '../utils/logger.util'
 import { GenerateOptions } from '../models/generation';
 
 export class Generator {
+
     private _files: string[] = [];
     private _templateAbsolutePath: string;
     private _options: GenerateOptions;
+    private _logger: Logger;
 
     constructor(options: GenerateOptions) {
+        this._logger = new Logger();
         this._options = options;
         this._templateAbsolutePath = path.join(
             __dirname,
@@ -36,9 +39,13 @@ export class Generator {
 
     private run = async () => {
         if (this._options.customTemplatesUrl) {
-            this._files = this.getFiles(this._templateAbsolutePath);
+            if (this._options.singleFile) {
+                this._files[0] = this._templateAbsolutePath;
+            } else {
+                this._files = this.getFiles(this._templateAbsolutePath);
+            }
         } else {
-            throw new Error('Specify the location of the templates folder using the customTemplatesUrl');
+            this._logger.showError('Specify the location of the templates folder using the customTemplatesUrl');
         }
 
         return this.finalize();
@@ -84,14 +91,14 @@ export class Generator {
             dest = this._options.dest + path.sep + dest;
         }
 
-        // console.log('this._options', this._options)
-        console.log('dest', dest)
-
         fs.readFile(
             absoluteTemplatePath,
             'utf8',
             (error: NodeJS.ErrnoException, data: string) => {
-                if (error) throw error;
+                if (error) {
+                    this._logger.showError(error);
+                }
+
                 const templateFilename = absoluteTemplatePath.replace(
                     this._templateAbsolutePath + path.sep,
                     ''
@@ -99,11 +106,16 @@ export class Generator {
                 const templatePathWithoutFileName = templateFilename
                     .substring(0, templateFilename.lastIndexOf(path.sep))
                     .replace(/{project}/g, this._options.name);
-                var fileExt = templateFilename
+
+                const fileExt = templateFilename
                     ? templateFilename.split('.').pop()
                     : '';
 
-                mkdirp(dest + templatePathWithoutFileName, () => {
+                const mkdirpPath = this._options.singleFile
+                    ? dest
+                    : dest + templatePathWithoutFileName;
+
+                mkdirp(mkdirpPath, () => {
                     let injectedData = {
                         name: this._options.name.toLowerCase(),
                         Name: _s.classify(this._options.name),
@@ -124,10 +136,7 @@ export class Generator {
                     let formattedData = format(data, injectedData);
 
                     // will auto indent the whole file
-                    if (
-                        this._options.autoIndent === true &&
-                        _.includes(this._options.autoIndentExtensions, fileExt)
-                    ) {
+                    if (this._options.autoIndent && _.includes(this._options.autoIndentExtensions, fileExt)) {
                         formattedData = js_beautify(formattedData);
                     }
 
@@ -135,20 +144,12 @@ export class Generator {
                         ? dest + templateFilename.replace(/{project}/g, this._options.name).split("/").pop()
                         : dest + templateFilename.replace(/{project}/g, this._options.name);
 
-                    fs.writeFile(
-                        fileToWrite,
-                        formattedData,
-                        (error: Error) => {
-                            if (error) {
-                                return console.log(error);
-                            }
-                            console.log(
-                                '\x1b[32m%s\x1b[0m: ',
-                                'Created: ' +
-                                fileToWrite
-                            );
+                    fs.writeFile(fileToWrite, formattedData, (error: Error) => {
+                        if (error) {
+                            this._logger.showError(error);
                         }
-                    );
+                        this._logger.showGenerate(fileToWrite);
+                    });
                 });
             }
         );
