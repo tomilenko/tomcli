@@ -48,9 +48,9 @@ export default class Hello extends Command {
                 this._options.template = answer.template as string
             });
         } else {
-            await Object.keys(GenerationTypesEnum).some((key: string, i: number) => {
+            await Object.keys(GenerationTypesEnum).find((key: string) => {
                 if (this._options.template == key.toLowerCase()) {
-                    this._options.template = Object.values(GenerationTypesEnum)[i];
+                    this._options.template = GenerationTypesEnum[key as keyof typeof GenerationTypesEnum];
                     return true;
                 }
             });
