@@ -13,7 +13,6 @@
     "figlet": "^1.2.4",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
-    "inversify": "^5.0.1",
     "js-beautify": "^1.10.2",
     "kleur": "^3.0.3",
     "lodash": "^4.17.15",
@@ -22,7 +21,6 @@
     "nodegit": "^0.26.2",
     "path": "^0.12.7",
     "path-type": "^4.0.0",
-    "reflect-metadata": "^0.1.13",
     "string-template": "^1.0.0",
     "tslib": "^1",
     "underscore.string": "^3.3.5"
@@ -36,7 +34,6 @@
     "@types/figlet": "^1.2.0",
     "@types/fs-extra": "^8.0.0",
     "@types/inquirer": "^6.5.0",
-    "@types/inversify": "^2.0.33",
     "@types/js-beautify": "^1.8.1",
     "@types/lodash": "^4.14.141",
     "@types/mkdirp": "^0.5.2",
