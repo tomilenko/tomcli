@@ -2,8 +2,6 @@ import { Command, flags } from '@oclif/command';
 import * as _ from 'lodash';
 import * as inquirer from 'inquirer';
 import { BaseUtil } from '../utils/base.util';
-import * as fs from 'fs-extra';
-import * as path from 'path';
 import { Generator } from '../utils/generator';
 import { IProjectOptions } from '../models/project';
 import { QProjectList, QName } from '../models/choice';
