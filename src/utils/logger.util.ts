@@ -1,9 +1,7 @@
-import { injectable } from 'inversify';
 import { red, green, cyan } from 'kleur';
 import * as figlet from 'figlet';
 import { ConsoleMessage } from '../models/console-message';
 
-@injectable()
 export class Logger {
 
     private _newLine = '\n';
@@ -26,7 +24,7 @@ export class Logger {
     }
 
     public showGenerate(fileName: string): void {
-        console.log(cyan(ConsoleMessage.GENERATE) + `${fileName}...`);
+        console.log(cyan(ConsoleMessage.GENERATE) + `${fileName}`);
     }
 
     public showCreate(fileName: string, filePath: string): void {
