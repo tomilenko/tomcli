@@ -13,15 +13,14 @@ export declare type GenerateOptions = {
 
 export interface TypeChoice {
     name: string;
-    value: string;
+    value: GenerationTypesEnum;
 }
 
 export enum GenerationTypesEnum {
-    CONTROLLER = 'controller',
-    MODEL = 'model',
-    REPOSITORY = 'repository',
-    COMPONENT = 'component',
-    CLASS = 'class',
+    CONTROLLER = '{project}.controller.ts',
+    MODEL = '{project}.model.ts',
+    REPOSITORY = '{project}.repository.ts',
+    CLASS = '{project}.ts',
 }
 
 export const listOfTypes: TypeChoice[] = [
@@ -31,11 +30,7 @@ export const listOfTypes: TypeChoice[] = [
     { name: 'Class', value: GenerationTypesEnum.CLASS },
 ];
 
-export enum ClassEnum {
-    DEFAULT = '{project}.ts'
-}
-
 export type GenerationChoiceType = {
-    type?: GenerationTypesEnum,
+    template?: GenerationTypesEnum,
     name?: string
 }

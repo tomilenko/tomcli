@@ -1,7 +1,6 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { GenerationTypesEnum } from '../models/generation';
-import { type } from 'os';
 
 export class BaseUtil {
 	public static getProjectList = (): string[] => {
@@ -17,7 +16,6 @@ export class BaseUtil {
 	}
 
 	public static isValidGenerationType = (name: string): boolean => {
-		return Object.values(GenerationTypesEnum).some((type: string) => type == name);
+		return Object.keys(GenerationTypesEnum).some((type: string) => type.toLowerCase() == name);
 	}
-
 }
