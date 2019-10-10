@@ -16,11 +16,11 @@ tomcli
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g tomcli-v
+$ npm install -g tomcli
 $ tomcli COMMAND
 running command...
 $ tomcli (-v|--version|version)
-tomcli-v/0.0.6 darwin-x64 node-v12.1.0
+tomcli/0.0.1 darwin-x64 node-v12.1.0
 $ tomcli --help [COMMAND]
 USAGE
   $ tomcli COMMAND
@@ -29,27 +29,32 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`tomcli create [TEMPLATE] [NAME]`](#tomcli-create-template-name)
+* [`tomcli generate [TEMPLATE] [NAME] [DEST]`](#tomcli-generate-template-name-dest)
 * [`tomcli hello [FILE]`](#tomcli-hello-file)
 * [`tomcli help [COMMAND]`](#tomcli-help-command)
+* [`tomcli project [TEMPLATE] [NAME]`](#tomcli-project-template-name)
 
-## `tomcli create [TEMPLATE] [NAME]`
+## `tomcli generate [TEMPLATE] [NAME] [DEST]`
 
-Create new project
+Generate files
 
 ```
 USAGE
-  $ tomcli create [TEMPLATE] [NAME]
+  $ tomcli generate [TEMPLATE] [NAME] [DEST]
 
 ARGUMENTS
-  TEMPLATE  Template name
+  TEMPLATE  Generation type name
   NAME      Project name
+  DEST      Destination directory
 
 OPTIONS
   -h, --help  show CLI help
+
+EXAMPLE
+  $ tomcli generate
 ```
 
-_See code: [src/commands/create.ts](https://github.com/tomilenko/tomcli/blob/v0.0.6/src/commands/create.ts)_
+_See code: [src/commands/generate.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/generate.ts)_
 
 ## `tomcli hello [FILE]`
 
@@ -69,7 +74,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.0.6/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/hello.ts)_
 
 ## `tomcli help [COMMAND]`
 
@@ -87,4 +92,22 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
+## `tomcli project [TEMPLATE] [NAME]`
+
+Create new project
+
+```
+USAGE
+  $ tomcli project [TEMPLATE] [NAME]
+
+ARGUMENTS
+  TEMPLATE  Template name
+  NAME      Project name
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/project.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/project.ts)_
 <!-- commandsstop -->
