@@ -10,9 +10,18 @@ tomcli
 [![License](https://img.shields.io/npm/l/tomcli.svg)](https://github.com/tomilenko/tomcli/blob/master/package.json)
 
 <!-- toc -->
+* [Description](#description)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+# Description
+<!-- description -->
+
+The command line tool for generating projects or specific files. You can generate predefined project template like express app with custom project structure etc. You can find it in `templates/projects`. 
+
+You can add you own template (like in `templates/projects/node-express`) and generate it where you need for new project setup. 
+
+<!-- descriptionstop -->
 # Usage
 <!-- usage -->
 ```sh-session
