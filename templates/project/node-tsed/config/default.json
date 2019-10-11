@@ -1,0 +1,20 @@
+{
+    "rootDir": "src",
+    "env": "development",
+    "port": 4000,
+    "debug": true,
+    "httpsPort": 8000,
+    "uploadDir": "${rootDir}/uploads",
+    "mount": {
+        "/api": "${rootDir}/controllers/**/*.ts"
+    },
+    "componentsScan": [
+        "${rootDir}/middlewares/**/*.ts",
+        "${rootDir}/services/**/*.ts"
+    ],
+    "routers": {
+        "mergeParams": false,
+        "strict": false,
+        "caseSensitive": false
+    }
+}

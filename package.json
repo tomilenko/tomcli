@@ -1,6 +1,6 @@
 {
   "name": "tomcli",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "author": "Vadym Tomilenko",
   "bin": {
     "tomcli": "./bin/run"

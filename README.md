@@ -29,7 +29,7 @@ $ npm install -g tomcli
 $ tomcli COMMAND
 running command...
 $ tomcli (-v|--version|version)
-tomcli/0.0.1 darwin-x64 node-v12.1.0
+tomcli/0.1.0 darwin-x64 node-v12.1.0
 $ tomcli --help [COMMAND]
 USAGE
   $ tomcli COMMAND
@@ -63,7 +63,7 @@ EXAMPLE
   $ tomcli generate
 ```
 
-_See code: [src/commands/generate.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/generate.ts)_
+_See code: [src/commands/generate.ts](https://github.com/tomilenko/tomcli/blob/v0.1.0/src/commands/generate.ts)_
 
 ## `tomcli hello [FILE]`
 
@@ -83,7 +83,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.1.0/src/commands/hello.ts)_
 
 ## `tomcli help [COMMAND]`
 
@@ -118,5 +118,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/project.ts](https://github.com/tomilenko/tomcli/blob/v0.0.1/src/commands/project.ts)_
+_See code: [src/commands/project.ts](https://github.com/tomilenko/tomcli/blob/v0.1.0/src/commands/project.ts)_
 <!-- commandsstop -->
