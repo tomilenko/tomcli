@@ -1,6 +1,6 @@
 {
-  "name": "tomcli",
-  "version": "0.1.1",
+  "name": "@tomilenko/tomcli",
+  "version": "0.1.2",
   "author": "Vadym Tomilenko",
   "bin": {
     "tomcli": "./bin/run"
@@ -10,6 +10,8 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@tomilenko/custom-template-generator": "^0.2.5",
+    "@tomilenko/logger": "^0.0.3",
     "figlet": "^1.2.4",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.0",
