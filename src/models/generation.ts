@@ -17,10 +17,10 @@ export interface TypeChoice {
 }
 
 export enum GenerationTypesEnum {
-    CONTROLLER = '{project}.controller.ts',
-    MODEL = '{project}.model.ts',
-    REPOSITORY = '{project}.repository.ts',
-    CLASS = '{project}.ts',
+    CONTROLLER = '{file}.controller.ts',
+    MODEL = '{file}.model.ts',
+    REPOSITORY = '{file}.repository.ts',
+    CLASS = '{file}.ts',
 }
 
 export const listOfTypes: TypeChoice[] = [

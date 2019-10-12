@@ -2,12 +2,12 @@ import { Command, flags } from '@oclif/command';
 import * as _ from 'lodash';
 import * as inquirer from 'inquirer';
 import { BaseUtil } from '../utils/base.util';
-import { Generator } from '../utils/generator';
 import { IProjectOptions } from '../models/project';
 import { QName, QGenerationTypes } from '../models/choice';
-import { GenerateOptions, GenerationChoiceType, GenerationTypesEnum } from '../models/generation';
+import { GenerationChoiceType, GenerationTypesEnum } from '../models/generation';
 import { Config } from '../models';
-import { Logger } from '../utils/logger.util';
+import Logger from '@tomilenko/logger';
+import Generator, { GenerateOptions } from '@tomilenko/custom-template-generator';
 
 export default class Hello extends Command {
     static description = 'Generate files';

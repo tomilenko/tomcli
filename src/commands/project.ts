@@ -2,11 +2,11 @@ import { Command, flags } from '@oclif/command';
 import * as _ from 'lodash';
 import * as inquirer from 'inquirer';
 import { BaseUtil } from '../utils/base.util';
-import { Generator } from '../utils/generator';
 import { IProjectOptions } from '../models/project';
 import { QProjectList, QName } from '../models/choice';
-import { GenerateOptions } from '../models/generation';
 import { Config } from '../models';
+import Logger from '@tomilenko/logger';
+import Generator, { GenerateOptions } from '@tomilenko/custom-template-generator';
 
 export default class Project extends Command {
     static description = 'Create new project';
@@ -20,12 +20,15 @@ export default class Project extends Command {
         { name: 'name', description: 'Project name' },
     ];
 
+    private _logger: Logger = new Logger();
+
     private _options: GenerateOptions = {
         type: 'project',
         name: '',
         customTemplatesUrl: Config.TEMPLATES_URL,
         dest: '',
         template: '',
+        autoIndent: false,
         wrapInFolder: true,
     };
 
