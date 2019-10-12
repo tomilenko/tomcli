@@ -1,12 +1,12 @@
 tomcli
-======
 
+## CLI tool
 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/tomcli.svg)](https://npmjs.org/package/tomcli)
+[![Version](https://img.shields.io/npm/v/@tomilenko/tomcli.svg)](https://img.shields.io/npm/v/@tomilenko/tomcli)
 [![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/tomilenko/tomcli?branch=master&svg=true)](https://ci.appveyor.com/project/tomilenko/tomcli/branch/master)
-[![Downloads/week](https://img.shields.io/npm/dw/tomcli.svg)](https://npmjs.org/package/tomcli)
+[![Downloads/week](https://img.shields.io/npm/dw/@tomilenk/tomcli.svg)](https://npmjs.org/package/@tomilenko/tomcli)
 [![License](https://img.shields.io/npm/l/tomcli.svg)](https://github.com/tomilenko/tomcli/blob/master/package.json)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LW54FD3RBE2PJ)
 
@@ -30,7 +30,7 @@ $ npm install -g @tomilenko/tomcli
 $ tomcli COMMAND
 running command...
 $ tomcli (-v|--version|version)
-@tomilenko/tomcli/0.1.2 darwin-x64 node-v12.1.0
+@tomilenko/tomcli/0.1.5 darwin-x64 node-v12.1.0
 $ tomcli --help [COMMAND]
 USAGE
   $ tomcli COMMAND
@@ -64,7 +64,7 @@ EXAMPLE
   $ tomcli generate
 ```
 
-_See code: [src/commands/generate.ts](https://github.com/tomilenko/tomcli/blob/v0.1.2/src/commands/generate.ts)_
+_See code: [src/commands/generate.ts](https://github.com/tomilenko/tomcli/blob/v0.1.5/src/commands/generate.ts)_
 
 ## `tomcli hello [FILE]`
 
@@ -84,7 +84,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.1.2/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/tomilenko/tomcli/blob/v0.1.5/src/commands/hello.ts)_
 
 ## `tomcli help [COMMAND]`
 
@@ -119,5 +119,5 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/project.ts](https://github.com/tomilenko/tomcli/blob/v0.1.2/src/commands/project.ts)_
+_See code: [src/commands/project.ts](https://github.com/tomilenko/tomcli/blob/v0.1.5/src/commands/project.ts)_
 <!-- commandsstop -->
