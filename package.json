@@ -19,7 +19,7 @@
     "kleur": "^3.0.3",
     "lodash": "^4.17.15",
     "mkdirp": "^0.5.1",
-    "node-notifier": "^6.0.0",
+    "node-notifier": "^8.0.1",
     "nodegit": "^0.26.2",
     "path": "^0.12.7",
     "path-type": "^4.0.0",
